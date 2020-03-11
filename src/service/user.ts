@@ -1,7 +1,8 @@
-import KoaRouter = require('koa-router')
+// const Koa = require('koa')
+const KoaRouter = require('koa-router')
 const router = new KoaRouter()
 
-const Redis = require('koa-redis')
+import * as Redis from 'koa-redis'
 const Store = new Redis().client
 
 const baseSus = { code: '1', msg: '操作成功' }
@@ -10,7 +11,7 @@ const baseErr = { code: '1', msg: '操作失败' }
 
 router.prefix('/user') // 接口前缀 服务接口可以多个文件去处理
 
-router.get('/list', (ctx: any) => {
+router.get('/list', (ctx: Koa.BaseContext) => {
   ctx.body = {
     ...baseSus,
     list: [

@@ -1,4 +1,4 @@
-const mongoose: any = require('mongoose')
+let mongoose: any = require('mongoose')
 
 // 配置表
 let schema = new mongoose.Schema({
